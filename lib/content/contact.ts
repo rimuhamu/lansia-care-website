@@ -9,7 +9,7 @@ export const contactContent = {
     },
     phone: {
       title: "Telepon",
-      number: "+62 812-3456-7890",
+      number: "+62 811-2502-049",
     },
     email: {
       title: "Email",
@@ -29,8 +29,9 @@ export const contactContent = {
       "Tersedia area parkir yang luas",
     ],
   },
+  whatsappNumber: "628112502049",
   whatsappMessage:
     "Halo! Saya ingin mengetahui lebih lanjut tentang Program Lansia Bahagia & Bermakna di Lansia Day Care Kleben, Sleman. Mohon informasinya. Terima kasih!",
 }
 
-export const whatsappNumber = "6281234567890"
+export const whatsappNumber = "628112502049"
