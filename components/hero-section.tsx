@@ -21,7 +21,7 @@ export function HeroSection() {
               <div className="order-1 lg:order-2 relative">
                 <div className="w-full h-64 sm:h-80 lg:h-full relative overflow-hidden">
                   <img
-                    src="/placeholder-22o37.png"
+                    src="/elder.jpg"
                     alt="Happy elderly people in community care"
                     className="w-full h-full object-cover"
                   />
@@ -73,14 +73,14 @@ export function HeroSection() {
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Button
                     className="text-xs sm:text-sm px-4 py-2"
-                    onClick={() => document.getElementById("programs")?.scrollIntoView({ behavior: "smooth" })}
+                    onClick={handleWhatsAppContact}
                   >
                     {heroContent.ctaPrimary}
                   </Button>
                   <Button
                     variant="outline"
                     className="text-xs sm:text-sm px-4 py-2 bg-transparent"
-                    onClick={handleWhatsAppContact}
+                    onClick={() => document.getElementById("programs")?.scrollIntoView({ behavior: "smooth" })}
                   >
                     {heroContent.ctaSecondary}
                   </Button>
