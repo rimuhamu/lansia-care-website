@@ -1,42 +1,64 @@
-# Lansia Care Website
+# Complete Deployment Guide
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+A step-by-step guide to deploy this Next.js application from development to production.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/zidan-arsyads-projects/v0-lansia-care-website)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/DGCOw9H7pj0)
+## 📋 Prerequisites
 
-## Overview
+- **Node.js**: Version 18.18.0 or higher
+- **npm**: Latest version (comes with Node.js)
+- **Git**: For version control
+- **Vercel Account**: For deployment (optional, supports other platforms)
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## ⚡ Local Development Setup
 
-## Preparation
+### 1. Clone the Repository
 
-Clone the repo and install next with
 ```bash
-npm install next@latest
+git clone [<your-repository-url>](https://github.com/rimuhamu/lansia-care-website-o2)
 ```
 
-Then,
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Environment Variables Setup
+
+Create a `.env` file in the root directory:
+
+```bash
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
+```
+
+#### Required Environment Variables:
+
+| Variable                          | Required | Description                                  |
+| --------------------------------- | -------- | -------------------------------------------- |
+| `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` | No       | Google Maps API key for location map display |
+
+#### Getting Google Maps API Key (Optional):
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select existing one
+3. Enable **Maps Embed API** and **Maps JavaScript API**
+4. Create credentials → API Key
+5. Restrict the API key to your domains
+6. Copy the API key to your `.env` file
+
+### 4. Start Development Server
+
 ```bash
 npm run dev
 ```
 
-## Deployment
+Visit [http://localhost:3000](http://localhost:3000) to see your application.
 
-Your project is live at:
+### 5. Available Scripts
 
-**[https://vercel.com/zidan-arsyads-projects/v0-lansia-care-website](https://vercel.com/zidan-arsyads-projects/v0-lansia-care-website)**
-
-## Build your app
-
-Continue building your app on:
-
-**[https://v0.app/chat/projects/DGCOw9H7pj0](https://v0.app/chat/projects/DGCOw9H7pj0)**
-
-## How It Works
-
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+```bash
+npm run dev      # Start development server
+npm run build    # Build production version
+npm run start    # Start production server
+npm run lint     # Run ESLint
+```
