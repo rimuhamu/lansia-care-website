@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
-import { GeistSans } from 'geist/font/sans';
-import { GeistMono } from 'geist/font/mono';
-import { Analytics } from '@vercel/analytics/next';
+import { Funnel_Sans } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -13,6 +12,11 @@ export const metadata: Metadata = {
   },
 };
 
+const funnelSans = Funnel_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '600', '800'],
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,10 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang='en'
-      className={`${GeistSans.variable} ${GeistMono.variable}`}
+      lang='id'
       suppressHydrationWarning>
-      <body className='font-sans'>
+      <body className={funnelSans.className}>
         {children}
         <Analytics />
       </body>
