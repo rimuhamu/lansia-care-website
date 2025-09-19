@@ -1,62 +1,81 @@
-"use client"
+'use client';
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { MapPin, Phone, Clock, Mail, MessageCircle } from "lucide-react"
-import { contactContent } from "@/lib/content/contact"
-import { footerContent } from "@/lib/content/footer"
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { MapPin, Phone, Clock, Mail, MessageCircle } from 'lucide-react';
+import { contactContent } from '@/lib/content/contact';
+import { footerContent } from '@/lib/content/footer';
 
-const whatsappNumber = contactContent.whatsappNumber
+const whatsappNumber = contactContent.whatsappNumber;
+const mapSrc = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+  ? `https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=Sleman,Yogyakarta,Indonesia&zoom=15`
+  : 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.0123456789!2d110.3456789!3d-7.7654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNDUnNTUuNiJTIDExMMKwMjAnNDQuNCJF!5e0!3m2!1sen!2sid!4v1234567890123!5m2!1sen!2sid';
 
 export function ContactSection() {
   const handleWhatsAppContact = () => {
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(contactContent.whatsappMessage)}`
-    window.open(whatsappUrl, "_blank")
-  }
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      contactContent.whatsappMessage
+    )}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
-    <section id="contact" className="py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-cream">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-8 lg:mb-12">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-3 text-balance">
+    <section
+      id='contact'
+      className='py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-cream'>
+      <div className='container mx-auto max-w-6xl'>
+        <div className='text-center mb-8 lg:mb-12'>
+          <h2 className='text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-3 text-balance'>
             {contactContent.title}
           </h2>
-          <p className="text-sm sm:text-base text-muted-foreground text-pretty">{contactContent.description}</p>
+          <p className='text-sm sm:text-base text-muted-foreground text-pretty'>
+            {contactContent.description}
+          </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <div className='grid lg:grid-cols-2 gap-8 lg:gap-12 items-start'>
           {/* Map - First on mobile/tablet */}
-          <div className="space-y-4 order-1 md:order-2 lg:order-2">
+          <div className='space-y-4 order-1 md:order-2 lg:order-2'>
             <div>
-              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4">{contactContent.map.title}</h3>
-              <Card className="overflow-hidden border border-gray-200">
-                <CardContent className="p-0">
-                  <div className="aspect-video bg-card flex items-center justify-center relative">
+              <h3 className='text-lg sm:text-xl font-bold text-foreground mb-4'>
+                {contactContent.map.title}
+              </h3>
+              <Card>
+                <CardContent className='p-0'>
+                  <div className='relative h-64 rounded-lg overflow-hidden'>
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.0123456789!2d110.3456789!3d-7.7654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNDUnNTUuNiJTIDExMMKwMjAnNDQuNCJF!5e0!3m2!1sen!2sid!4v1234567890123!5m2!1sen!2sid"
-                      width="100%"
-                      height="100%"
+                      src={mapSrc}
+                      width='100%'
+                      height='100%'
                       style={{ border: 0 }}
                       allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      className="absolute inset-0"
-                    ></iframe>
-                    <div className="absolute inset-0 bg-card/50 flex items-center justify-center">
-                      <div className="text-center">
-                        <MapPin className="w-8 h-8 text-primary mx-auto mb-2" />
-                        <p className="text-foreground font-semibold text-xs sm:text-sm">{footerContent.company.name}</p>
-                        <p className="text-muted-foreground text-xs">Sleman, Yogyakarta</p>
+                      loading='lazy'
+                      referrerPolicy='no-referrer-when-downgrade'
+                      className='absolute inset-0'
+                      title='Office Location Map'></iframe>
+                    {!process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY && (
+                      <div className='absolute inset-0 bg-card/50 flex items-center justify-center'>
+                        <div className='text-center'>
+                          <MapPin className='w-8 h-8 text-primary mx-auto mb-2' />
+                          <p className='text-foreground font-semibold text-xs sm:text-sm'>
+                            {footerContent.company.name}
+                          </p>
+                          <p className='text-muted-foreground text-xs'>
+                            Lansia Day Care Kleben
+                          </p>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </CardContent>
               </Card>
             </div>
 
-            <div className="bg-background p-4 rounded-lg border border-gray-200">
-              <h4 className="font-semibold text-foreground mb-2 text-xs sm:text-sm">Petunjuk Arah</h4>
-              <div className="space-y-1 text-xs text-muted-foreground">
+            <div className='bg-background p-4 rounded-lg border border-gray-200'>
+              <h4 className='font-semibold text-foreground mb-2 text-xs sm:text-sm'>
+                Petunjuk Arah
+              </h4>
+              <div className='space-y-1 text-xs text-muted-foreground'>
                 {contactContent.map.directions.map((direction, index) => (
                   <p key={index}>• {direction}</p>
                 ))}
@@ -65,19 +84,21 @@ export function ContactSection() {
           </div>
 
           {/* Contact Information - Second on mobile/tablet */}
-          <div className="space-y-6 order-2 md:order-1 lg:order-1">
+          <div className='space-y-6 order-2 md:order-1 lg:order-1'>
             <div>
-              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4">{contactContent.info.title}</h3>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="p-2 bg-primary/10 rounded-full">
-                    <MapPin className="w-5 h-5 text-primary" />
+              <h3 className='text-lg sm:text-xl font-bold text-foreground mb-4'>
+                {contactContent.info.title}
+              </h3>
+              <div className='space-y-4'>
+                <div className='flex items-start gap-3'>
+                  <div className='p-2 bg-primary/10 rounded-full'>
+                    <MapPin className='w-5 h-5 text-primary' />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1 text-xs sm:text-sm">
+                    <h4 className='font-semibold text-foreground mb-1 text-xs sm:text-sm'>
                       {contactContent.info.address.title}
                     </h4>
-                    <div className="text-muted-foreground text-xs sm:text-sm">
+                    <div className='text-muted-foreground text-xs sm:text-sm'>
                       {contactContent.info.address.lines.map((line, index) => (
                         <p key={index}>{line}</p>
                       ))}
@@ -85,39 +106,43 @@ export function ContactSection() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="p-2 bg-primary/10 rounded-full">
-                    <Phone className="w-5 h-5 text-primary" />
+                <div className='flex items-start gap-3'>
+                  <div className='p-2 bg-primary/10 rounded-full'>
+                    <Phone className='w-5 h-5 text-primary' />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1 text-xs sm:text-sm">
+                    <h4 className='font-semibold text-foreground mb-1 text-xs sm:text-sm'>
                       {contactContent.info.phone.title}
                     </h4>
-                    <p className="text-muted-foreground text-xs sm:text-sm">{contactContent.info.phone.number}</p>
+                    <p className='text-muted-foreground text-xs sm:text-sm'>
+                      {contactContent.info.phone.number}
+                    </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="p-2 bg-primary/10 rounded-full">
-                    <Mail className="w-5 h-5 text-primary" />
+                <div className='flex items-start gap-3'>
+                  <div className='p-2 bg-primary/10 rounded-full'>
+                    <Mail className='w-5 h-5 text-primary' />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1 text-xs sm:text-sm">
+                    <h4 className='font-semibold text-foreground mb-1 text-xs sm:text-sm'>
                       {contactContent.info.email.title}
                     </h4>
-                    <p className="text-muted-foreground text-xs sm:text-sm">{contactContent.info.email.address}</p>
+                    <p className='text-muted-foreground text-xs sm:text-sm'>
+                      {contactContent.info.email.address}
+                    </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="p-2 bg-primary/10 rounded-full">
-                    <Clock className="w-5 h-5 text-primary" />
+                <div className='flex items-start gap-3'>
+                  <div className='p-2 bg-primary/10 rounded-full'>
+                    <Clock className='w-5 h-5 text-primary' />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1 text-xs sm:text-sm">
+                    <h4 className='font-semibold text-foreground mb-1 text-xs sm:text-sm'>
                       {contactContent.info.hours.title}
                     </h4>
-                    <div className="text-muted-foreground space-y-1 text-xs sm:text-sm">
+                    <div className='text-muted-foreground space-y-1 text-xs sm:text-sm'>
                       {contactContent.info.hours.schedule.map((time, index) => (
                         <p key={index}>{time}</p>
                       ))}
@@ -126,9 +151,11 @@ export function ContactSection() {
                 </div>
               </div>
 
-              <div className="mt-6">
-                <Button onClick={handleWhatsAppContact} className="w-full sm:w-auto text-xs sm:text-sm">
-                  <MessageCircle className="w-4 h-4 mr-2" />
+              <div className='mt-6'>
+                <Button
+                  onClick={handleWhatsAppContact}
+                  className='w-full sm:w-auto text-xs sm:text-sm'>
+                  <MessageCircle className='w-4 h-4 mr-2' />
                   Hubungi via WhatsApp
                 </Button>
               </div>
@@ -137,5 +164,5 @@ export function ContactSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
