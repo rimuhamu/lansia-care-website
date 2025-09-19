@@ -69,12 +69,9 @@ Mohon informasi lebih lanjut mengenai program ini. Terima kasih!`
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-md max-h-[90vh] overflow-hidden flex flex-col">
         <DialogHeader className="flex-shrink-0">
-          <div className="flex items-center justify-between">
-            <DialogTitle className="text-base md:text-lg font-bold text-balance">Pesan {program.title}</DialogTitle>
-            <Button variant="ghost" size="sm" onClick={onClose} className="h-6 w-6 p-0 hover:bg-gray-100">
-              <X className="h-4 w-4" />
-            </Button>
-          </div>
+          <DialogTitle className="text-base md:text-lg font-bold text-balance">
+            Pesan {program.title}
+          </DialogTitle>
           <DialogDescription className="text-pretty text-xs md:text-sm">
             Isi formulir di bawah ini untuk melanjutkan pemesanan melalui WhatsApp
           </DialogDescription>
