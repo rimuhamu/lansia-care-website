@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Funnel_Sans } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
+import { StickyNav } from '@/components/sticky-nav';
+import { FooterSection } from '@/components/footer-section';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -26,10 +28,12 @@ export default function RootLayout({
     <html
       lang='id'
       suppressHydrationWarning>
+      <StickyNav />
       <body className={funnelSans.className}>
         {children}
         <Analytics />
       </body>
+      <FooterSection />
     </html>
   );
 }

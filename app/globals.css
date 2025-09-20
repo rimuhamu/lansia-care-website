@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -15,8 +15,11 @@
   --primary-foreground: oklch(1 0 0); /* White text on primary buttons */
   --secondary: oklch(0.98 0.02 85); /* Cream for secondary elements */
   --secondary-foreground: oklch(0.25 0.02 220); /* Dark text on secondary */
+  --sage-green: oklch(0.75 0.12 150);
   --muted: oklch(0.96 0.01 85); /* Very light cream for muted sections */
-  --muted-foreground: oklch(0.45 0.02 220); /* Medium gray text for muted areas */
+  --muted-foreground: oklch(
+    0.45 0.02 220
+  ); /* Medium gray text for muted areas */
   --accent: oklch(0.45 0.15 160); /* Forest green for accents */
   --accent-foreground: oklch(1 0 0); /* White text on accent elements */
   --destructive: oklch(0.577 0.245 27.325);
@@ -35,7 +38,9 @@
   --sidebar-primary: oklch(0.55 0.18 25); /* Deep orange for sidebar elements */
   --sidebar-primary-foreground: oklch(1 0 0); /* White text in sidebar */
   --sidebar-accent: oklch(0.45 0.15 160); /* Forest green for sidebar accents */
-  --sidebar-accent-foreground: oklch(1 0 0); /* White text for sidebar accents */
+  --sidebar-accent-foreground: oklch(
+    1 0 0
+  ); /* White text for sidebar accents */
   --sidebar-border: oklch(0.9 0.01 220); /* Light gray for sidebar borders */
   --sidebar-ring: oklch(0.55 0.18 25); /* Orange for sidebar focus rings */
   --cream: oklch(0.98 0.02 85); /* Cream color definition */
@@ -142,5 +147,9 @@
 
   .bg-cream {
     background-color: oklch(0.98 0.02 85);
+  }
+
+  .bg-sage-green {
+    background-color: var(--sage-green);
   }
 }
