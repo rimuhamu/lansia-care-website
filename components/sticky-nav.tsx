@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -10,7 +10,10 @@ import { usePathname } from 'next/navigation';
 export function StickyNav() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
+  const [mobileAboutDropdownOpen, setMobileAboutDropdownOpen] = useState(false);
   const pathname = usePathname();
+  const aboutDropdownRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,12 +23,44 @@ export function StickyNav() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        aboutDropdownRef.current &&
+        event.target instanceof Element &&
+        !aboutDropdownRef.current.contains(event.target)
+      ) {
+        setAboutDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // About Us dropdown items
+  const aboutDropdownItems = [
+    { label: 'Visi & Misi', href: '/visi-misi' },
+    { label: 'Nilai Kami', href: '/nilai-kami' },
+    { label: 'Pengurus', href: '/pengurus' },
+  ];
+
   const navItems = [
     { label: 'Beranda', href: '/' },
+    {
+      label: 'Tentang Kami',
+      href: '/tentang-kami',
+      hasDropdown: true,
+      dropdownItems: aboutDropdownItems,
+    },
     { label: 'Program', href: pathname === '/' ? '#programs' : '/#programs' },
+    { label: 'Fasilitas', href: '/fasilitas' },
+    { label: 'Metode Pembelajaran', href: '/metode-pembelajaran' },
     { label: 'FAQ', href: pathname === '/' ? '#faq' : '/#faq' },
     { label: 'Kontak', href: pathname === '/' ? '#contact' : '/#contact' },
-    { label: 'Tentang Kami', href: '/tentang-kami' },
   ];
 
   const handleNavClick = (href: string) => {
@@ -45,14 +80,15 @@ export function StickyNav() {
       }
     }
     setIsOpen(false);
+    setAboutDropdownOpen(false);
+    setMobileAboutDropdownOpen(false);
   };
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false);
-    }
+  const isAboutPage = (href: string) => {
+    return (
+      href === '/tentang-kami' ||
+      aboutDropdownItems.some((item) => item.href === href)
+    );
   };
 
   return (
@@ -82,25 +118,65 @@ export function StickyNav() {
 
           {/* Desktop Navigation */}
           <div className='hidden md:flex items-center space-x-8'>
-            {navItems.map((item) =>
-              item.href.startsWith('/') && !item.href.startsWith('/#') ? (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`text-foreground hover:text-primary transition-colors font-medium ${
-                    pathname === item.href ? 'text-primary' : ''
-                  }`}>
-                  {item.label}
-                </Link>
-              ) : (
-                <button
-                  key={item.href}
-                  onClick={() => handleNavClick(item.href)}
-                  className='text-foreground hover:text-primary transition-colors font-medium'>
-                  {item.label}
-                </button>
-              )
-            )}
+            {navItems.map((item) => (
+              <div
+                key={item.label}
+                className='relative'
+                ref={item.hasDropdown ? aboutDropdownRef : null}>
+                {item.hasDropdown ? (
+                  <>
+                    <button
+                      onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
+                      onMouseEnter={() => setAboutDropdownOpen(true)}
+                      className={`flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium ${
+                        isAboutPage(pathname) ? 'text-primary' : ''
+                      }`}>
+                      {item.label}
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform duration-200 ${
+                          aboutDropdownOpen ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+
+                    {/* Desktop Dropdown */}
+                    {aboutDropdownOpen && (
+                      <div
+                        className='absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50'
+                        onMouseLeave={() => setAboutDropdownOpen(false)}>
+                        {aboutDropdownItems.map((dropdownItem) => (
+                          <Link
+                            key={dropdownItem.href}
+                            href={dropdownItem.href}
+                            onClick={() => setAboutDropdownOpen(false)}
+                            className={`block px-4 py-2 text-sm text-foreground hover:bg-gray-50 hover:text-primary transition-colors ${
+                              pathname === dropdownItem.href
+                                ? 'text-primary bg-gray-50'
+                                : ''
+                            }`}>
+                            {dropdownItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : item.href.startsWith('/') && !item.href.startsWith('/#') ? (
+                  <Link
+                    href={item.href}
+                    className={`text-foreground hover:text-primary transition-colors font-medium ${
+                      pathname === item.href ? 'text-primary' : ''
+                    }`}>
+                    {item.label}
+                  </Link>
+                ) : (
+                  <button
+                    onClick={() => handleNavClick(item.href)}
+                    className='text-foreground hover:text-primary transition-colors font-medium'>
+                    {item.label}
+                  </button>
+                )}
+              </div>
+            ))}
             <Button
               onClick={() =>
                 handleNavClick(pathname === '/' ? '#contact' : '/#contact')
@@ -121,21 +197,75 @@ export function StickyNav() {
           </Button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className='md:hidden bg-background border-t border-border'>
-            <div className='px-2 pt-2 pb-3 space-y-1'>
-              {navItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => scrollToSection(item.href)}
-                  className='block w-full text-left px-3 py-2 text-foreground hover:text-primary hover:bg-muted rounded-md transition-colors'>
-                  {item.label}
-                </button>
-              ))}
-              <div className='px-3 py-2'>
+          <div className='md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-sm border-t border-border shadow-lg'>
+            <div className='container px-4 py-4'>
+              <div className='flex flex-col space-y-4'>
+                {navItems.map((item) => (
+                  <div key={item.label}>
+                    {item.hasDropdown ? (
+                      <>
+                        <button
+                          onClick={() =>
+                            setMobileAboutDropdownOpen(!mobileAboutDropdownOpen)
+                          }
+                          className={`flex items-center justify-between w-full text-left text-foreground hover:text-primary transition-colors font-medium ${
+                            isAboutPage(pathname) ? 'text-primary' : ''
+                          }`}>
+                          {item.label}
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              mobileAboutDropdownOpen ? 'rotate-180' : ''
+                            }`}
+                          />
+                        </button>
+
+                        {/* Mobile Dropdown */}
+                        {mobileAboutDropdownOpen && (
+                          <div className='ml-4 mt-2 space-y-2'>
+                            {aboutDropdownItems.map((dropdownItem) => (
+                              <Link
+                                key={dropdownItem.href}
+                                href={dropdownItem.href}
+                                onClick={() => {
+                                  setIsOpen(false);
+                                  setMobileAboutDropdownOpen(false);
+                                }}
+                                className={`block py-2 text-sm text-foreground hover:text-primary transition-colors ${
+                                  pathname === dropdownItem.href
+                                    ? 'text-primary'
+                                    : ''
+                                }`}>
+                                {dropdownItem.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </>
+                    ) : item.href.startsWith('/') &&
+                      !item.href.startsWith('/#') ? (
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className={`block text-foreground hover:text-primary transition-colors font-medium ${
+                          pathname === item.href ? 'text-primary' : ''
+                        }`}>
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={() => handleNavClick(item.href)}
+                        className='text-foreground hover:text-primary transition-colors font-medium'>
+                        {item.label}
+                      </button>
+                    )}
+                  </div>
+                ))}
                 <Button
-                  onClick={() => scrollToSection('#contact')}
+                  onClick={() =>
+                    handleNavClick(pathname === '/' ? '#contact' : '/#contact')
+                  }
                   size='sm'
                   className='w-full'>
                   Hubungi Kami
