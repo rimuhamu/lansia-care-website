@@ -7,8 +7,6 @@ export const visionMissionContent = {
     title: 'Visi Kami',
     description:
       'Visi kami adalah mewujudkan pusat kegiatan lansia yang inklusif, berdaya, dan sejahtera.',
-    statement:
-      'Menjadi rumah kedua yang memberikan kehangatan, kebahagiaan, dan makna bagi setiap hari kehidupan lansia di Sleman.',
   },
 
   mission: {
@@ -19,26 +17,26 @@ export const visionMissionContent = {
       {
         icon: 'Heart',
         title: 'Menyediakan ruang yang aman dan nyaman untuk berinteraksi.',
-        description:
-          'Menyediakan ruang yang aman dan nyaman untuk berinteraksi.',
       },
       {
         icon: 'Users',
-        title: 'Komunitas yang Mendukung',
-        description:
-          'Membangun lingkungan sosial yang positif dan suportif dimana lansia dapat berinteraksi, berbagi, dan saling mendukung.',
+        title: 'Meningkatkan kesejahteraan.',
       },
       {
         icon: 'Shield',
-        title: 'Perawatan Profesional',
-        description:
-          'Menyediakan layanan kesehatan dan perawatan yang profesional dengan standar kualitas tinggi dan keamanan yang terjamin.',
+        title: 'Mendorong kemandirian.',
       },
       {
         icon: 'Star',
-        title: 'Program Bermakna',
-        description:
-          'Menyelenggarakan kegiatan dan program yang memberikan makna, tujuan, dan kebahagiaan dalam kehidupan sehari-hari lansia.',
+        title: 'Membangun lingkungan sosial yang suportif.',
+      },
+      {
+        icon: 'Star',
+        title: 'Menyediakan pendampingan profesional.',
+      },
+      {
+        icon: 'Star',
+        title: 'MMemfasilitasi interaksi antar generasi.',
       },
     ],
   },
@@ -50,39 +48,33 @@ export const visionMissionContent = {
     items: [
       {
         icon: '💖',
-        title: 'Kasih Sayang',
-        description:
-          'Memberikan perhatian dan perawatan dengan hati yang tulus dan penuh cinta kepada setiap lansia.',
+        title: 'IMPaCt',
+        subtitle:
+          '(Inklusif – Memberdayakan – Peduli – Andal/Profesional – Cinta generasi)',
+        description: 'Yayasan memberi impact nyata bagi lansia & masyarakat.',
       },
       {
         icon: '🤝',
-        title: 'Respect',
-        description:
-          'Menghormati martabat, pengalaman, dan kebijaksanaan setiap lansia sebagai individu yang berharga.',
+        title: 'SAPA',
+        subtitle:
+          '(Sinergi – Amanah/Profesional – Peduli – Aksesibel/Inklusif)',
       },
       {
         icon: '🔒',
-        title: 'Kepercayaan',
-        description:
-          'Membangun hubungan yang didasari kepercayaan dengan transparansi dan integritas dalam setiap tindakan.',
+        title: 'CERIA',
+        subtitle:
+          '(Care/Peduli – Empower/Memberdayakan – Respect/Inklusif – Integritas/Profesional – Antar generasi)',
       },
       {
         icon: '⭐',
-        title: 'Kualitas',
-        description:
-          'Berkomitmen memberikan layanan berkualitas tinggi dengan standar profesional yang terbaik.',
+        title: 'BERDIKARI',
+        subtitle:
+          '(Bersinergi – Empati – Respect/Inklusif – Daya/Memberdaya – Integritas/Profesional – Kasih – Antar generasi – Riang)',
       },
       {
         icon: '🌱',
-        title: 'Pertumbuhan',
-        description:
-          'Mendorong perkembangan dan pembelajaran berkelanjutan bagi lansia sesuai kemampuan dan minat mereka.',
-      },
-      {
-        icon: '👨‍👩‍👧‍👦',
-        title: 'Keluarga',
-        description:
-          'Menciptakan suasana kekeluargaan yang hangat dimana setiap lansia merasa seperti di rumah sendiri.',
+        title: 'SEHAT',
+        subtitle: '(Sinergi – Empati – Holistik – Amanah – Tangguh)',
       },
     ],
   },
