@@ -36,15 +36,15 @@ export const visionMissionContent = {
       },
       {
         icon: 'Star',
-        title: 'MMemfasilitasi interaksi antar generasi.',
+        title: 'Memfasilitasi interaksi antar generasi.',
       },
     ],
   },
 
   values: {
-    title: 'Nilai-Nilai Kami',
+    title: 'Nilai Kami',
     description:
-      'Nilai-nilai fundamental yang menjadi landasan dalam setiap layanan dan interaksi kami dengan para lansia dan keluarga.',
+      'Nilai fundamental yang menjadi landasan dalam setiap layanan dan interaksi kami dengan para lansia dan keluarga.',
     items: [
       {
         icon: '🤝',
