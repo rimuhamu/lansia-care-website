@@ -58,10 +58,10 @@ export function VisiMisi() {
               Tentang Kami
             </span>
           </div>
-          <h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight max-w-4xl mx-auto'>
+          <h1 className='text-3xl sm:text-4xl font-bold text-foreground mb-4'>
             {visionMissionContent.title}
           </h1>
-          <p className='text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
+          <p className='text-muted-foreground leading-relaxed max-w-2xl mx-auto'>
             {visionMissionContent.description}
           </p>
         </header>
@@ -130,7 +130,7 @@ export function VisiMisi() {
           id='nilai-kami'
           className='mb-16'>
           <div className='text-center mb-10'>
-            <h2 className='text-2xl sm:text-3xl font-bold text-foreground mb-4'>
+            <h2 className='text-3xl sm:text-4xl font-bold text-foreground mb-4'>
               {visionMissionContent.values.title}
             </h2>
             <p className='text-muted-foreground leading-relaxed max-w-2xl mx-auto'>
@@ -144,10 +144,8 @@ export function VisiMisi() {
                 key={index}
                 className='group hover:shadow-lg transition-all duration-300 bg-gradient-to-r from-card via-card to-muted/5 border-0 mb-4 last:mb-0'>
                 <CardContent className='p-6 relative overflow-hidden'>
-                  <div className='absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300'></div>
-
                   <div className='flex items-center gap-6'>
-                    <div className='flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center group-hover:from-primary/20 group-hover:to-secondary/20 transition-all duration-300'>
+                    <div className='flex-shrink-0 w-16 h-16 bg-primary rounded-2xl flex items-center justify-center group-hover:from-primary/20 group-hover:to-secondary/20 transition-all duration-300'>
                       <span
                         className='text-3xl'
                         role='img'
@@ -176,10 +174,10 @@ export function VisiMisi() {
             <div className='absolute inset-0 bg-gradient-to-r from-primary/5 via-background to-secondary/5'></div>
             <CardContent className='relative p-8 lg:p-12'>
               <div className='max-w-3xl mx-auto'>
-                <h3 className='text-2xl sm:text-3xl font-bold text-foreground mb-4'>
+                <h3 className='text-xl sm:text-2xl font-bold text-foreground mb-4'>
                   {visionMissionContent.cta.title}
                 </h3>
-                <p className='text-lg text-muted-foreground mb-8 leading-relaxed'>
+                <p className=' text-muted-foreground mb-8 leading-relaxed'>
                   {visionMissionContent.cta.description}
                 </p>
 

@@ -189,7 +189,7 @@ export function HeroSection() {
                 </div>
 
                 <div className='flex flex-col sm:flex-row gap-3'>
-                  <Link href='/tentang-kami'>
+                  <Link href='/visi-misi'>
                     <Button className='text-xs sm:text-sm px-4 py-2'>
                       {heroContent.ctaPrimary}
                     </Button>
