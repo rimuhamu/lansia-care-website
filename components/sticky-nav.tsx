@@ -44,7 +44,6 @@ export function StickyNav() {
   // About Us dropdown items
   const aboutDropdownItems = [
     { label: 'Visi & Misi', href: '/visi-misi' },
-    { label: 'Nilai Kami', href: '/nilai-kami' },
     { label: 'Pengurus', href: '/pengurus' },
   ];
 
@@ -52,7 +51,7 @@ export function StickyNav() {
     { label: 'Beranda', href: '/' },
     {
       label: 'Tentang Kami',
-      href: '/tentang-kami',
+      href: '/visi-misi',
       hasDropdown: true,
       dropdownItems: aboutDropdownItems,
     },
