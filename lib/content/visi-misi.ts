@@ -47,34 +47,10 @@ export const visionMissionContent = {
       'Nilai-nilai fundamental yang menjadi landasan dalam setiap layanan dan interaksi kami dengan para lansia dan keluarga.',
     items: [
       {
-        icon: '💖',
-        title: 'IMPaCt',
-        subtitle:
-          '(Inklusif – Memberdayakan – Peduli – Andal/Profesional – Cinta generasi)',
-        description: 'Yayasan memberi impact nyata bagi lansia & masyarakat.',
-      },
-      {
         icon: '🤝',
         title: 'SAPA',
         subtitle:
           '(Sinergi – Amanah/Profesional – Peduli – Aksesibel/Inklusif)',
-      },
-      {
-        icon: '🔒',
-        title: 'CERIA',
-        subtitle:
-          '(Care/Peduli – Empower/Memberdayakan – Respect/Inklusif – Integritas/Profesional – Antar generasi)',
-      },
-      {
-        icon: '⭐',
-        title: 'BERDIKARI',
-        subtitle:
-          '(Bersinergi – Empati – Respect/Inklusif – Daya/Memberdaya – Integritas/Profesional – Kasih – Antar generasi – Riang)',
-      },
-      {
-        icon: '🌱',
-        title: 'SEHAT',
-        subtitle: '(Sinergi – Empati – Holistik – Amanah – Tangguh)',
       },
     ],
   },
