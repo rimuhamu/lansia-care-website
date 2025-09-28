@@ -28,12 +28,12 @@ export default function RootLayout({
     <html
       lang='id'
       suppressHydrationWarning>
-      <StickyNav />
       <body className={funnelSans.className}>
+        <StickyNav />
         {children}
+        <FooterSection />
         <Analytics />
       </body>
-      <FooterSection />
     </html>
   );
 }
