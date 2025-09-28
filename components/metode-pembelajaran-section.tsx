@@ -68,22 +68,22 @@ export function MetodePembelajaranSection() {
   return (
     <section
       id='metode-pembelajaran'
-      className='py-20 lg:py-24 min-h-screen'>
+      className='py-16 lg:py-20 min-h-screen flex items-center bg-gradient-to-br from-background via-background to-muted/30'>
       <div className='container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-        {/* Hero Header */}
-        <div className='text-center mb-20'>
-          <div className='inline-block bg-primary/10 px-6 py-3 rounded-full border border-primary/20 mb-6'>
+        {/* Header Section */}
+        <header className='text-center mb-16'>
+          <div className='inline-flex items-center bg-primary/10 px-6 py-3 rounded-full border border-primary/20 mb-6'>
             <span className='text-primary font-semibold text-sm uppercase tracking-wide'>
               {metodePembelajaranContent.hero.badge}
             </span>
           </div>
-          <h1 className='text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight'>
+          <h1 className='text-3xl sm:text-4xl font-bold text-foreground mb-4'>
             {metodePembelajaranContent.hero.title}
           </h1>
-          <p className='text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed'>
+          <p className='text-muted-foreground leading-relaxed max-w-2xl mx-auto'>
             {metodePembelajaranContent.hero.description}
           </p>
-        </div>
+        </header>
 
         {/* Introduction */}
         <div className='mb-20'>
@@ -110,7 +110,7 @@ export function MetodePembelajaranSection() {
             <h2 className='text-2xl lg:text-3xl font-bold text-foreground mb-4'>
               Peta Metode Pembelajaran Terintegrasi
             </h2>
-            <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
+            <p className='text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
               Diagram metode pembelajaran yang saling terkait dan mendukung satu
               sama lain
             </p>
@@ -124,7 +124,7 @@ export function MetodePembelajaranSection() {
             <h2 className='text-2xl lg:text-3xl font-bold text-foreground mb-4'>
               Penjelasan Detail Metode Pembelajaran
             </h2>
-            <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
+            <p className='text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
               Setiap metode dirancang khusus untuk memenuhi kebutuhan
               pembelajaran lansia
             </p>
@@ -167,7 +167,7 @@ export function MetodePembelajaranSection() {
 
                       {/* Key Points */}
                       <div className='lg:col-span-2'>
-                        <h4 className='font-semibold text-foreground mb-3'>
+                        <h4 className='text-lg font-semibold text-foreground mb-3'>
                           Penerapan:
                         </h4>
                         <ul className='space-y-2'>
@@ -176,7 +176,7 @@ export function MetodePembelajaranSection() {
                               key={pointIndex}
                               className='flex items-start gap-2'>
                               <CheckCircle className='w-5 h-5 text-green-500 flex-shrink-0 mt-0.5' />
-                              <span className='text-sm text-muted-foreground leading-relaxed'>
+                              <span className='text-muted-foreground leading-relaxed'>
                                 {point}
                               </span>
                             </li>
@@ -186,7 +186,7 @@ export function MetodePembelajaranSection() {
                         {/* Special case for Holistik method */}
                         {method.id === 'holistik' && method.aspects && (
                           <div className='mt-6'>
-                            <h4 className='font-semibold text-foreground mb-3'>
+                            <h4 className='text-lg font-semibold text-foreground mb-3'>
                               Aspek Holistik:
                             </h4>
                             <div className='grid sm:grid-cols-2 gap-3'>
@@ -197,7 +197,7 @@ export function MetodePembelajaranSection() {
                                   <span className='font-medium text-foreground'>
                                     {aspect.name}:
                                   </span>
-                                  <span className='text-sm text-muted-foreground ml-1'>
+                                  <span className='text-muted-foreground ml-1'>
                                     {aspect.description}
                                   </span>
                                 </div>
@@ -209,7 +209,7 @@ export function MetodePembelajaranSection() {
 
                       {/* Benefits */}
                       <div>
-                        <h4 className='font-semibold text-foreground mb-3'>
+                        <h4 className='text-lg font-semibold text-foreground mb-3'>
                           Manfaat:
                         </h4>
                         <div className='space-y-2'>
@@ -217,7 +217,7 @@ export function MetodePembelajaranSection() {
                             <div
                               key={benefitIndex}
                               className='inline-block bg-primary/10 px-3 py-1 rounded-full mr-2 mb-2'>
-                              <span className='text-xs text-primary font-medium'>
+                              <span className='text-sm text-primary font-medium'>
                                 {benefit}
                               </span>
                             </div>
@@ -238,7 +238,7 @@ export function MetodePembelajaranSection() {
             <h2 className='text-2xl lg:text-3xl font-bold text-foreground mb-4'>
               {metodePembelajaranContent.principles.title}
             </h2>
-            <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
+            <p className='text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
               {metodePembelajaranContent.principles.description}
             </p>
           </div>
@@ -257,10 +257,10 @@ export function MetodePembelajaranSection() {
                       <div className='inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4'>
                         <IconComponent className='w-6 h-6 text-primary' />
                       </div>
-                      <h3 className='font-bold text-foreground mb-2'>
+                      <h3 className='text-lg font-bold text-foreground mb-2'>
                         {principle.title}
                       </h3>
-                      <p className='text-sm text-muted-foreground leading-relaxed'>
+                      <p className='text-muted-foreground leading-relaxed'>
                         {principle.description}
                       </p>
                     </CardContent>
@@ -277,7 +277,7 @@ export function MetodePembelajaranSection() {
             <h2 className='text-2xl lg:text-3xl font-bold text-foreground mb-4'>
               {metodePembelajaranContent.outcomes.title}
             </h2>
-            <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
+            <p className='text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
               {metodePembelajaranContent.outcomes.description}
             </p>
           </div>
@@ -297,9 +297,7 @@ export function MetodePembelajaranSection() {
                         key={benefitIndex}
                         className='flex items-center gap-2 justify-center'>
                         <Star className='w-4 h-4 text-yellow-500 flex-shrink-0' />
-                        <span className='text-sm text-muted-foreground'>
-                          {benefit}
-                        </span>
+                        <span className='text-muted-foreground'>{benefit}</span>
                       </div>
                     ))}
                   </div>
@@ -316,7 +314,7 @@ export function MetodePembelajaranSection() {
               <h3 className='text-2xl lg:text-3xl font-bold text-foreground mb-4'>
                 {metodePembelajaranContent.cta.title}
               </h3>
-              <p className='text-lg text-muted-foreground mb-8 max-w-2xl mx-auto'>
+              <p className='text-lg text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed'>
                 {metodePembelajaranContent.cta.description}
               </p>
               <div className='flex flex-col sm:flex-row gap-4 justify-center'>

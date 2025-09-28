@@ -51,22 +51,22 @@ export function FasilitasSection() {
   return (
     <section
       id='fasilitas'
-      className='py-20 lg:py-24 min-h-screen'>
+      className='py-16 lg:py-20 min-h-screen flex items-center bg-gradient-to-br from-background via-background to-muted/30'>
       <div className='container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-        {/* Hero Header */}
-        <div className='text-center mb-20'>
-          <div className='inline-block bg-primary/10 px-6 py-3 rounded-full border border-primary/20 mb-6'>
+        {/* Header Section */}
+        <header className='text-center mb-16'>
+          <div className='inline-flex items-center bg-primary/10 px-6 py-3 rounded-full border border-primary/20 mb-6'>
             <span className='text-primary font-semibold text-sm uppercase tracking-wide'>
               {fasilitasContent.hero.badge}
             </span>
           </div>
-          <h1 className='text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight'>
+          <h1 className='text-3xl sm:text-4xl font-bold text-foreground mb-4'>
             {fasilitasContent.hero.title}
           </h1>
-          <p className='text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed'>
+          <p className='text-muted-foreground leading-relaxed max-w-2xl mx-auto'>
             {fasilitasContent.hero.description}
           </p>
-        </div>
+        </header>
 
         {/* Main Facility Categories */}
         <div className='space-y-16 mb-20'>
@@ -87,11 +87,11 @@ export function FasilitasSection() {
                   <div
                     className={`inline-flex items-center gap-3 bg-gradient-to-r ${gradientClass} px-6 py-4 rounded-2xl border mb-4`}>
                     <IconComponent className={`w-8 h-8 ${iconColorClass}`} />
-                    <h2 className='text-2xl lg:text-3xl font-bold text-foreground'>
+                    <h2 className='text-xl lg:text-2xl font-bold text-foreground'>
                       {category.title}
                     </h2>
                   </div>
-                  <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
+                  <p className=' text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
                     {category.description}
                   </p>
                 </div>
@@ -104,29 +104,29 @@ export function FasilitasSection() {
                       className='h-full hover:shadow-lg transition-all duration-300 border-0 shadow-md hover:-translate-y-1'>
                       <CardContent className='p-6 h-full flex flex-col'>
                         <div className='flex-1'>
-                          <h3 className='text-lg font-bold text-foreground mb-3'>
+                          <h3 className='text-xl font-bold text-foreground mb-3'>
                             {facility.name}
                           </h3>
-                          <p className='text-muted-foreground mb-4 text-sm leading-relaxed'>
+                          <p className='text-muted-foreground mb-4 leading-relaxed'>
                             {facility.description}
                           </p>
                           {facility.details && (
-                            <p className='text-muted-foreground mb-4 text-sm italic'>
+                            <p className='text-muted-foreground mb-4 italic leading-relaxed'>
                               {facility.details}
                             </p>
                           )}
                         </div>
                         <div className='mt-4'>
-                          <h4 className='text-sm font-semibold text-foreground mb-2'>
+                          <h4 className='font-semibold text-foreground mb-3'>
                             Fitur Utama:
                           </h4>
-                          <div className='space-y-1'>
+                          <div className='space-y-2'>
                             {facility.features.map((feature, featureIndex) => (
                               <div
                                 key={featureIndex}
                                 className='flex items-center gap-2'>
                                 <Check className='w-4 h-4 text-green-500 flex-shrink-0' />
-                                <span className='text-xs text-muted-foreground'>
+                                <span className='text-sm text-muted-foreground leading-relaxed'>
                                   {feature}
                                 </span>
                               </div>
@@ -147,11 +147,11 @@ export function FasilitasSection() {
           <div className='text-center mb-12'>
             <div className='inline-flex items-center gap-3 bg-gradient-to-r from-purple-500/10 to-purple-600/5 border border-purple-200/50 px-6 py-4 rounded-2xl mb-4'>
               <Shield className='w-8 h-8 text-purple-600' />
-              <h2 className='text-2xl lg:text-3xl font-bold text-foreground'>
+              <h2 className='text-xl lg:text-2xl font-bold text-foreground'>
                 {fasilitasContent.accessibility.title}
               </h2>
             </div>
-            <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
+            <p className='text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
               {fasilitasContent.accessibility.description}
             </p>
           </div>
@@ -162,19 +162,19 @@ export function FasilitasSection() {
                 key={index}
                 className='hover:shadow-lg transition-all duration-300'>
                 <CardContent className='p-6'>
-                  <h3 className='text-lg font-bold text-foreground mb-3'>
+                  <h3 className='text-xl font-bold text-foreground mb-3'>
                     {item.name}
                   </h3>
-                  <p className='text-muted-foreground mb-4 text-sm'>
+                  <p className='text-muted-foreground mb-4 leading-relaxed'>
                     {item.description}
                   </p>
-                  <div className='space-y-1'>
+                  <div className='space-y-2'>
                     {item.features.map((feature, featureIndex) => (
                       <div
                         key={featureIndex}
                         className='flex items-center gap-2'>
                         <Check className='w-4 h-4 text-green-500 flex-shrink-0' />
-                        <span className='text-xs text-muted-foreground'>
+                        <span className='text-sm text-muted-foreground leading-relaxed'>
                           {feature}
                         </span>
                       </div>
@@ -191,11 +191,11 @@ export function FasilitasSection() {
           <div className='text-center mb-12'>
             <div className='inline-flex items-center gap-3 bg-gradient-to-r from-pink-500/10 to-pink-600/5 border border-pink-200/50 px-6 py-4 rounded-2xl mb-4'>
               <Star className='w-8 h-8 text-pink-600' />
-              <h2 className='text-2xl lg:text-3xl font-bold text-foreground'>
+              <h2 className='text-xl lg:text-2xl font-bold text-foreground'>
                 {fasilitasContent.additionalFeatures.title}
               </h2>
             </div>
-            <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
+            <p className='text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
               {fasilitasContent.additionalFeatures.description}
             </p>
           </div>
@@ -206,14 +206,14 @@ export function FasilitasSection() {
                 key={index}
                 className='text-center hover:shadow-lg transition-all duration-300'>
                 <CardContent className='p-6'>
-                  <h3 className='text-lg font-bold text-foreground mb-3'>
+                  <h3 className='text-xl font-bold text-foreground mb-3'>
                     {item.name}
                   </h3>
-                  <p className='text-muted-foreground mb-4 text-sm'>
+                  <p className='text-muted-foreground mb-4 leading-relaxed'>
                     {item.description}
                   </p>
                   <div className='inline-block bg-pink-100 px-3 py-1 rounded-full'>
-                    <span className='text-xs text-pink-700 font-medium'>
+                    <span className='text-sm text-pink-700 font-medium'>
                       {item.purpose}
                     </span>
                   </div>
@@ -259,7 +259,7 @@ export function FasilitasSection() {
               <h3 className='text-2xl lg:text-3xl font-bold text-foreground mb-4'>
                 {fasilitasContent.cta.title}
               </h3>
-              <p className='text-lg text-muted-foreground mb-8 max-w-2xl mx-auto'>
+              <p className='text-lg text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed'>
                 {fasilitasContent.cta.description}
               </p>
               <div className='flex flex-col sm:flex-row gap-4 justify-center'>

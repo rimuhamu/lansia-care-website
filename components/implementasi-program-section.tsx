@@ -54,23 +54,23 @@ const iconColorMap = {
 export function ProgramImplementationSection() {
   return (
     <section
-      id='program-implementation'
-      className='py-20 lg:py-24 min-h-screen'>
+      id='implementasi-program'
+      className='py-16 lg:py-20 min-h-screen flex items-center bg-gradient-to-br from-background via-background to-muted/30'>
       <div className='container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-        {/* Hero Header */}
-        <div className='text-center mb-20'>
-          <div className='inline-block bg-primary/10 px-6 py-3 rounded-full border border-primary/20 mb-6'>
+        {/* Header Section */}
+        <header className='text-center mb-16'>
+          <div className='inline-flex items-center bg-primary/10 px-6 py-3 rounded-full border border-primary/20 mb-6'>
             <span className='text-primary font-semibold text-sm uppercase tracking-wide'>
               {programImplementationContent.hero.badge}
             </span>
           </div>
-          <h1 className='text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight'>
+          <h1 className='text-3xl sm:text-4xl font-bold text-foreground mb-4'>
             {programImplementationContent.hero.title}
           </h1>
-          <p className='text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed'>
+          <p className='text-muted-foreground leading-relaxed max-w-2xl mx-auto'>
             {programImplementationContent.hero.description}
           </p>
-        </div>
+        </header>
 
         {/* Schedule Section */}
         <div className='mb-20'>
@@ -78,7 +78,7 @@ export function ProgramImplementationSection() {
             <h2 className='text-2xl lg:text-3xl font-bold text-foreground mb-4'>
               {programImplementationContent.schedule.title}
             </h2>
-            <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
+            <p className='text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
               {programImplementationContent.schedule.description}
             </p>
           </div>
@@ -115,20 +115,20 @@ export function ProgramImplementationSection() {
                           className={`border-b border-gray-100 hover:bg-primary/5 transition-colors ${
                             index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'
                           }`}>
-                          <td className='px-6 py-4 text-sm text-center font-bold text-primary'>
+                          <td className='px-6 py-4 text-center font-bold text-primary'>
                             {item.no}
                           </td>
-                          <td className='px-6 py-4 text-sm font-semibold text-foreground'>
+                          <td className='px-6 py-4 font-semibold text-foreground'>
                             {item.time}
                           </td>
-                          <td className='px-6 py-4 text-sm font-medium text-foreground'>
+                          <td className='px-6 py-4 font-medium text-foreground'>
                             {item.activity}
                           </td>
-                          <td className='px-6 py-4 text-sm text-muted-foreground'>
+                          <td className='px-6 py-4 text-muted-foreground'>
                             <span
                               className={`inline-block bg-gradient-to-r ${
                                 colorMap[item.color as keyof typeof colorMap]
-                              } px-3 py-1 rounded-full text-xs font-medium ${
+                              } px-3 py-1 rounded-full text-sm font-medium ${
                                 iconColorMap[
                                   item.color as keyof typeof iconColorMap
                                 ]
@@ -136,7 +136,7 @@ export function ProgramImplementationSection() {
                               {item.method}
                             </span>
                           </td>
-                          <td className='px-6 py-4 text-sm text-muted-foreground leading-relaxed max-w-xs'>
+                          <td className='px-6 py-4 text-muted-foreground leading-relaxed max-w-xs'>
                             {item.description}
                           </td>
                         </tr>
@@ -174,20 +174,20 @@ export function ProgramImplementationSection() {
                           <span className='text-lg font-bold text-primary'>
                             #{item.no}
                           </span>
-                          <span className='text-sm font-semibold text-foreground bg-primary/10 px-2 py-1 rounded'>
+                          <span className='font-semibold text-foreground bg-primary/10 px-3 py-1 rounded'>
                             {item.time}
                           </span>
                         </div>
-                        <h4 className='font-bold text-foreground mb-2 text-lg'>
+                        <h4 className='font-bold text-foreground mb-3 text-lg'>
                           {item.activity}
                         </h4>
                         <div className='mb-3'>
                           <span
-                            className={`inline-block bg-gradient-to-r ${gradientClass} px-3 py-1 rounded-full text-xs font-medium ${iconColorClass} border`}>
+                            className={`inline-block bg-gradient-to-r ${gradientClass} px-3 py-1 rounded-full text-sm font-medium ${iconColorClass} border`}>
                             {item.method}
                           </span>
                         </div>
-                        <p className='text-sm text-muted-foreground leading-relaxed'>
+                        <p className='text-muted-foreground leading-relaxed'>
                           {item.description}
                         </p>
                       </div>
@@ -205,7 +205,7 @@ export function ProgramImplementationSection() {
             <h2 className='text-2xl lg:text-3xl font-bold text-foreground mb-4'>
               {programImplementationContent.benefits.title}
             </h2>
-            <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
+            <p className='text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
               {programImplementationContent.benefits.description}
             </p>
           </div>
@@ -231,10 +231,10 @@ export function ProgramImplementationSection() {
                           className={`w-8 h-8 ${iconColorClass}`}
                         />
                       </div>
-                      <h3 className='font-bold text-foreground mb-2 text-lg'>
+                      <h3 className='font-bold text-foreground mb-3 text-lg'>
                         {benefit.title}
                       </h3>
-                      <p className='text-sm text-muted-foreground leading-relaxed'>
+                      <p className='text-muted-foreground leading-relaxed'>
                         {benefit.description}
                       </p>
                     </CardContent>
@@ -280,7 +280,7 @@ export function ProgramImplementationSection() {
               <h3 className='text-2xl lg:text-3xl font-bold text-foreground mb-4'>
                 {programImplementationContent.cta.title}
               </h3>
-              <p className='text-lg text-muted-foreground mb-8 max-w-2xl mx-auto'>
+              <p className='text-lg text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed'>
                 {programImplementationContent.cta.description}
               </p>
               <div className='flex flex-col sm:flex-row gap-4 justify-center'>
