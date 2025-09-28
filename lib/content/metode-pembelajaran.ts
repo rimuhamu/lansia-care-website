@@ -3,15 +3,8 @@ export const metodePembelajaranContent = {
   hero: {
     title: 'Metode Pembelajaran Inovatif untuk Lansia',
     description:
-      'Pusat Kegiatan Lansia menggunakan metode pembelajaran yang interaktif, menyenangkan, sederhana, partisipatif, dan sesuai dengan kondisi fisik & psikologis lansia.',
+      "Untuk Pusat Kegiatan Lansia, metode pembelajaran yang dipilih sebaiknya interaktif, menyenangkan, sederhana, partisipatif, dan sesuai dengan kondisi fisik & psikologis lansia. Artinya, tidak boleh taku seperti 'kelas formal', melainkan berbasis pengalaman, praktik, dan kebersamaan. Beberapa metode yang cocok:",
     badge: 'Metode Pembelajaran',
-  },
-
-  introduction: {
-    title: 'Pendekatan Pembelajaran Holistik',
-    description:
-      "Untuk Pusat Kegiatan Lansia, metode pembelajaran yang dipilih sebaiknya interaktif, menyenangkan, sederhana, partisipatif, dan sesuai dengan kondisi fisik & psikologis lansia. Artinya, tidak boleh taku seperti 'kelas formal', melainkan berbasis pengalaman, praktik, dan kebersamaan.",
-    highlight: 'Beberapa metode yang cocok:',
   },
 
   coreMethod: {

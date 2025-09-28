@@ -85,36 +85,8 @@ export function MetodePembelajaranSection() {
           </p>
         </header>
 
-        {/* Introduction */}
-        <div className='mb-20'>
-          <Card className='bg-gradient-to-r from-primary/5 via-background to-secondary/5 border-primary/20'>
-            <CardContent className='p-8 lg:p-12 text-center'>
-              <h2 className='text-2xl lg:text-3xl font-bold text-foreground mb-6'>
-                {metodePembelajaranContent.introduction.title}
-              </h2>
-              <p className='text-lg text-muted-foreground mb-6 max-w-4xl mx-auto leading-relaxed'>
-                {metodePembelajaranContent.introduction.description}
-              </p>
-              <div className='inline-block bg-primary/10 px-4 py-2 rounded-full border border-primary/20'>
-                <span className='text-primary font-semibold text-sm'>
-                  {metodePembelajaranContent.introduction.highlight}
-                </span>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
         {/* Core Method Diagram */}
-        <div className='mb-20'>
-          <div className='text-center mb-12'>
-            <h2 className='text-2xl lg:text-3xl font-bold text-foreground mb-4'>
-              Peta Metode Pembelajaran Terintegrasi
-            </h2>
-            <p className='text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
-              Diagram metode pembelajaran yang saling terkait dan mendukung satu
-              sama lain
-            </p>
-          </div>
+        <div className='mt-[-100px]'>
           <CircularLearningMethods />
         </div>
 
