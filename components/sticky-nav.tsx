@@ -55,7 +55,12 @@ export function StickyNav() {
       hasDropdown: true,
       dropdownItems: aboutDropdownItems,
     },
-    { label: 'Program', href: pathname === '/' ? '#programs' : '/#programs' },
+    {
+      label: 'Program',
+      href: pathname === '/' ? '#programs' : '/#programs',
+      hasDropdown: true,
+      dropdownItems: aboutDropdownItems,
+    },
     { label: 'Fasilitas', href: '/fasilitas' },
     { label: 'Metode Pembelajaran', href: '/metode-pembelajaran' },
     { label: 'FAQ', href: pathname === '/' ? '#faq' : '/#faq' },

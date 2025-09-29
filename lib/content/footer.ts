@@ -3,8 +3,7 @@ export const footerContent = {
     name: 'Lansia Day Care Kleben',
     description:
       'Memberikan layanan perawatan harian terbaik untuk lansia dengan program yang dirancang khusus untuk mendukung kesehatan fisik, emosional, spiritual, dan sosial melalui kegiatan yang bermakna.',
-    address:
-      'Dusun Kencuran RT 4 RW 6, Tanjungsari, Sukoharjo, Ngaglik, Sleman',
+    address: 'Tanjungsari RT 4 RW 6, Sukoharjo, Ngaglik, Sleman',
     phone: '+62 812-3456-7890',
     email: 'info@lansiadaycare.com',
   },

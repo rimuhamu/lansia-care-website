@@ -8,8 +8,8 @@ export const contactContent = {
       title: 'Alamat',
       lines: [
         'Lansia Day Care Kleben',
-        'Dusun Kencuran RT 4 RW 6, Tanjungsari, Sukoharjo',
-        'Ngaglik, Sleman, Yogyakarta 55584',
+        'Tanjungsari RT 4 RW 6, Sukoharjo',
+        'Ngaglik, Sleman.',
       ],
     },
     phone: {
