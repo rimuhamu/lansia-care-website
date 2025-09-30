@@ -6,11 +6,7 @@ export const contactContent = {
     title: 'Informasi Kontak',
     address: {
       title: 'Alamat',
-      lines: [
-        'Lansia Day Care Kleben',
-        'Tanjungsari RT 4 RW 6, Sukoharjo',
-        'Ngaglik, Sleman.',
-      ],
+      lines: ['Laras', 'Tanjungsari RT 4 RW 6, Sukoharjo', 'Ngaglik, Sleman.'],
     },
     phone: {
       title: 'Telepon',
@@ -40,7 +36,7 @@ export const contactContent = {
   },
   whatsappNumber: '628112502049',
   whatsappMessage:
-    'Halo! Saya ingin mengetahui lebih lanjut tentang Program Lansia Bahagia & Bermakna di Lansia Day Care Kleben, Sleman. Mohon informasinya. Terima kasih!',
+    'Halo! Saya ingin mengetahui lebih lanjut tentang Program Lansia Bahagia & Bermakna di Laras. Mohon informasinya. Terima kasih!',
 };
 
 export const whatsappNumber = '628112502049';

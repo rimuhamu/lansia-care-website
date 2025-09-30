@@ -1,7 +1,7 @@
 export const pengurusContent = {
   title: 'Struktur Organisasi',
   description:
-    'Struktur organisasi dan tim pengurus Lansia Day Care Kleben yang terdiri dari para profesional berpengalaman dalam bidang kesehatan dan kesejahteraan lansia.',
+    'Struktur organisasi dan tim pengurus Laras yang terdiri dari para profesional berpengalaman dalam bidang kesehatan dan kesejahteraan lansia.',
 
   leadership: {
     title: 'Pembina',

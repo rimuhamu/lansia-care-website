@@ -6,9 +6,9 @@ import { FooterSection } from '@/components/footer-section';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Lansia Care Sleman',
+  title: 'Laras',
   description:
-    'Lansia Care Sleman menyediakan layanan perawatan dan pendampingan lansia dengan kasih sayang, aman, serta profesional di wilayah Sleman.',
+    'Laras menyediakan layanan perawatan dan pendampingan lansia dengan kasih sayang, aman, serta profesional di wilayah Sleman.',
   icons: {
     icon: '/favicon.ico',
   },

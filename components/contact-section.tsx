@@ -60,9 +60,7 @@ export function ContactSection() {
                           <p className='text-foreground font-semibold text-xs sm:text-sm'>
                             {footerContent.company.name}
                           </p>
-                          <p className='text-muted-foreground text-xs'>
-                            Lansia Day Care Kleben
-                          </p>
+                          <p className='text-muted-foreground text-xs'>Laras</p>
                         </div>
                       </div>
                     )}

@@ -112,9 +112,12 @@ export function StickyNav() {
                 height={40}
                 className='object-contain'
               />
-              <span className='font-bold text-foreground'>
-                Lansia Day Care Kleben
-              </span>
+              <div className='hidden sm:flex flex-col leading-tight'>
+                <span className='font-bold text-foreground'>Laras</span>
+                <span className='text-sm text-muted-foreground'>
+                  Layanan kegiatan dan rekreasi lansia
+                </span>
+              </div>
             </div>
           </Link>
 

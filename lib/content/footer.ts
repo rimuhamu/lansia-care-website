@@ -1,6 +1,6 @@
 export const footerContent = {
   company: {
-    name: 'Lansia Day Care Kleben',
+    name: 'Laras',
     description:
       'Memberikan layanan perawatan harian terbaik untuk lansia dengan program yang dirancang khusus untuk mendukung kesehatan fisik, emosional, spiritual, dan sosial melalui kegiatan yang bermakna.',
     address: 'Tanjungsari RT 4 RW 6, Sukoharjo, Ngaglik, Sleman',
@@ -20,7 +20,7 @@ export const footerContent = {
     title: 'Ikuti Kami',
   },
   legal: {
-    copyright: '© 2025 Lansia Day Care Kleben. Semua hak cipta dilindungi.',
+    copyright: '© 2025 Laras. Semua hak cipta dilindungi.',
     links: ['Kebijakan Privasi', 'Syarat & Ketentuan', 'FAQ'],
   },
 };
