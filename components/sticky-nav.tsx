@@ -13,7 +13,7 @@ export function StickyNav() {
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [mobileAboutDropdownOpen, setMobileAboutDropdownOpen] = useState(false);
   const pathname = usePathname();
-  const aboutDropdownRef = useRef(null);
+  const aboutDropdownRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -95,18 +95,17 @@ export function StickyNav() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-background/95 backdrop-blur-sm shadow-sm'
-          : 'bg-transparent'
-      }`}>
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? 'bg-background/95 backdrop-blur-sm shadow-sm'
+        : 'bg-transparent'
+        }`}>
       <div className='container w-full px-4 sm:px-6 lg:px-10 mx-auto'>
         <div className='flex items-center justify-between h-16'>
           {/* Logo */}
           <Link href='/'>
             <div className='flex items-center gap-2'>
               <Image
-                src={'/elder.svg'}
+                src={'/Laras Logo.svg'}
                 alt='Logo'
                 width={40}
                 height={40}
@@ -133,14 +132,12 @@ export function StickyNav() {
                     <button
                       onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
                       onMouseEnter={() => setAboutDropdownOpen(true)}
-                      className={`flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium ${
-                        isAboutPage(pathname) ? 'text-primary' : ''
-                      }`}>
+                      className={`flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium ${isAboutPage(pathname) ? 'text-primary' : ''
+                        }`}>
                       {item.label}
                       <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-200 ${
-                          aboutDropdownOpen ? 'rotate-180' : ''
-                        }`}
+                        className={`w-4 h-4 transition-transform duration-200 ${aboutDropdownOpen ? 'rotate-180' : ''
+                          }`}
                       />
                     </button>
 
@@ -154,11 +151,10 @@ export function StickyNav() {
                             key={dropdownItem.href}
                             href={dropdownItem.href}
                             onClick={() => setAboutDropdownOpen(false)}
-                            className={`block px-4 py-2 text-sm text-foreground hover:bg-gray-50 hover:text-primary transition-colors ${
-                              pathname === dropdownItem.href
-                                ? 'text-primary bg-gray-50'
-                                : ''
-                            }`}>
+                            className={`block px-4 py-2 text-sm text-foreground hover:bg-gray-50 hover:text-primary transition-colors ${pathname === dropdownItem.href
+                              ? 'text-primary bg-gray-50'
+                              : ''
+                              }`}>
                             {dropdownItem.label}
                           </Link>
                         ))}
@@ -168,9 +164,8 @@ export function StickyNav() {
                 ) : item.href.startsWith('/') && !item.href.startsWith('/#') ? (
                   <Link
                     href={item.href}
-                    className={`text-foreground hover:text-primary transition-colors font-medium ${
-                      pathname === item.href ? 'text-primary' : ''
-                    }`}>
+                    className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === item.href ? 'text-primary' : ''
+                      }`}>
                     {item.label}
                   </Link>
                 ) : (
@@ -215,14 +210,12 @@ export function StickyNav() {
                           onClick={() =>
                             setMobileAboutDropdownOpen(!mobileAboutDropdownOpen)
                           }
-                          className={`flex items-center justify-between w-full text-left text-foreground hover:text-primary transition-colors font-medium ${
-                            isAboutPage(pathname) ? 'text-primary' : ''
-                          }`}>
+                          className={`flex items-center justify-between w-full text-left text-foreground hover:text-primary transition-colors font-medium ${isAboutPage(pathname) ? 'text-primary' : ''
+                            }`}>
                           {item.label}
                           <ChevronDown
-                            className={`w-4 h-4 transition-transform duration-200 ${
-                              mobileAboutDropdownOpen ? 'rotate-180' : ''
-                            }`}
+                            className={`w-4 h-4 transition-transform duration-200 ${mobileAboutDropdownOpen ? 'rotate-180' : ''
+                              }`}
                           />
                         </button>
 
@@ -237,11 +230,10 @@ export function StickyNav() {
                                   setIsOpen(false);
                                   setMobileAboutDropdownOpen(false);
                                 }}
-                                className={`block py-2 text-sm text-foreground hover:text-primary transition-colors ${
-                                  pathname === dropdownItem.href
-                                    ? 'text-primary'
-                                    : ''
-                                }`}>
+                                className={`block py-2 text-sm text-foreground hover:text-primary transition-colors ${pathname === dropdownItem.href
+                                  ? 'text-primary'
+                                  : ''
+                                  }`}>
                                 {dropdownItem.label}
                               </Link>
                             ))}
@@ -253,9 +245,8 @@ export function StickyNav() {
                       <Link
                         href={item.href}
                         onClick={() => setIsOpen(false)}
-                        className={`block text-foreground hover:text-primary transition-colors font-medium ${
-                          pathname === item.href ? 'text-primary' : ''
-                        }`}>
+                        className={`block text-foreground hover:text-primary transition-colors font-medium ${pathname === item.href ? 'text-primary' : ''
+                          }`}>
                         {item.label}
                       </Link>
                     ) : (

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     'Laras menyediakan layanan perawatan dan pendampingan lansia dengan kasih sayang, aman, serta profesional di wilayah Sleman.',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/Laras Logo.svg',
   },
 };
 

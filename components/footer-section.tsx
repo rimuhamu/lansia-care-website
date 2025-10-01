@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { footerContent } from '@/lib/content/footer';
 import { contactContent } from '@/lib/content/contact';
+import Image from 'next/image';
 
 export function FooterSection() {
   const scrollToTop = () => {
@@ -23,8 +24,14 @@ export function FooterSection() {
           {/* Company Info */}
           <div className='lg:col-span-2 space-y-3'>
             <div className='flex items-center gap-2'>
-              <div className='w-6 h-6 bg-pink-200 rounded-full flex items-center justify-center'>
-                <div className='w-3 h-3 bg-pink-400 rounded-full'></div>
+              <div className='w-6 h-6  flex items-center justify-center'>
+                <Image
+                  src={footerContent.company.logo}
+                  alt='Logo'
+                  width={40}
+                  height={40}
+                  className='object-contain'
+                />
               </div>
               <button
                 onClick={scrollToTop}

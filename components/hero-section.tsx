@@ -39,9 +39,8 @@ export function HeroSection() {
   const [isPlaying, setIsPlaying] = useState(true);
 
   const handleWhatsAppContact = () => {
-    const whatsappUrl = `https://wa.me/${
-      contactContent.whatsappNumber
-    }?text=${encodeURIComponent(contactContent.whatsappMessage)}`;
+    const whatsappUrl = `https://wa.me/${contactContent.whatsappNumber
+      }?text=${encodeURIComponent(contactContent.whatsappMessage)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -123,11 +122,10 @@ export function HeroSection() {
                       <button
                         key={index}
                         onClick={() => goToSlide(index)}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 ${
-                          currentSlide === index
-                            ? 'bg-white scale-125 shadow-lg'
-                            : 'bg-white/60 hover:bg-white/80 hover:scale-110'
-                        }`}
+                        className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 ${currentSlide === index
+                          ? 'bg-white scale-125 shadow-lg'
+                          : 'bg-white/60 hover:bg-white/80 hover:scale-110'
+                          }`}
                         aria-label={`Go to slide ${index + 1}`}
                       />
                     ))}
@@ -137,9 +135,6 @@ export function HeroSection() {
 
               <div className='order-2 lg:order-1 p-6 lg:p-8 space-y-4 lg:space-y-6 bg-gradient-to-br from-white via-white to-gray-50/30 rounded-bl-2xl lg:rounded-bl-none lg:rounded-l-2xl'>
                 <div className='flex items-center gap-2 text-primary'>
-                  <div className='w-6 h-6 bg-pink-200 rounded-full flex items-center justify-center'>
-                    <div className='w-3 h-3 bg-pink-400 rounded-full'></div>
-                  </div>
                   <span className='text-xs sm:text-sm font-medium'>
                     {heroContent.badge}
                   </span>
