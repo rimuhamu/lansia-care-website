@@ -105,7 +105,7 @@ export function StickyNav() {
         ? 'bg-background/95 backdrop-blur-sm shadow-sm'
         : 'bg-transparent'
         }`}>
-      <div className='container max-w-6xl px-4 sm:px-6 lg:px-0 mx-auto'>
+      <div className='container max-w-6xl px-6 md:px-4 lg:px-0 mx-auto'>
         <div className='flex items-center justify-between h-16'>
           {/* Logo */}
           <Link href='/' className='px-2 py-0 lg:py-2 mr-8 gap-2 lg:gap-3 w-fit rounded inline-flex items-center hover:bg-neutral-400/20 transition-colors cursor-pointer'>
