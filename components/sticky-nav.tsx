@@ -3,9 +3,15 @@
 import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { Qwigley } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+
+const qwigley = Qwigley({
+  subsets: ['latin'],
+  weight: '400',
+});
 
 export function StickyNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -99,24 +105,20 @@ export function StickyNav() {
         ? 'bg-background/95 backdrop-blur-sm shadow-sm'
         : 'bg-transparent'
         }`}>
-      <div className='container w-full px-4 sm:px-6 lg:px-10 mx-auto'>
+      <div className='container max-w-6xl px-4 sm:px-6 lg:px-0 mx-auto'>
         <div className='flex items-center justify-between h-16'>
           {/* Logo */}
-          <Link href='/'>
-            <div className='flex items-center gap-2'>
-              <Image
-                src={'/Laras Logo.svg'}
-                alt='Logo'
-                width={40}
-                height={40}
-                className='object-contain'
-              />
-              <div className='hidden sm:flex flex-col leading-tight'>
-                <span className='font-bold text-foreground'>Laras</span>
-                <span className='text-sm text-muted-foreground'>
-                  Layanan kegiatan dan rekreasi lansia
-                </span>
-              </div>
+          <Link href='/' className='px-2 py-0 lg:py-2 mr-8 gap-2 lg:gap-3 w-fit rounded inline-flex items-center hover:bg-neutral-400/20 transition-colors cursor-pointer'>
+            <img
+              src={'/Laras Logo.svg'}
+              alt='Logo'
+              className='w-6 h-6 lg:w-8 lg:h-8 object-contain'
+            />
+            <div className='flex flex-col leading-0'>
+              <span className={`text-2xl lg:mt-0 mt-2 ${qwigley.className}`}>Laras</span>
+              <span className='hidden lg:block mb-1.5 text-[0.6rem] text-muted-foreground'>
+                Layanan Kegiatan dan Rekreasi Lansia
+              </span>
             </div>
           </Link>
 
@@ -198,79 +200,81 @@ export function StickyNav() {
         </div>
 
         {/* Mobile Navigation Menu */}
-        {isOpen && (
-          <div className='md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-sm border-t border-border shadow-lg'>
-            <div className='container px-4 py-4'>
-              <div className='flex flex-col space-y-4'>
-                {navItems.map((item) => (
-                  <div key={item.label}>
-                    {item.hasDropdown ? (
-                      <>
-                        <button
-                          onClick={() =>
-                            setMobileAboutDropdownOpen(!mobileAboutDropdownOpen)
-                          }
-                          className={`flex items-center justify-between w-full text-left text-foreground hover:text-primary transition-colors font-medium ${isAboutPage(pathname) ? 'text-primary' : ''
+        {
+          isOpen && (
+            <div className='md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-sm border-t border-border shadow-lg'>
+              <div className='container px-4 py-4'>
+                <div className='flex flex-col space-y-4'>
+                  {navItems.map((item) => (
+                    <div key={item.label}>
+                      {item.hasDropdown ? (
+                        <>
+                          <button
+                            onClick={() =>
+                              setMobileAboutDropdownOpen(!mobileAboutDropdownOpen)
+                            }
+                            className={`flex items-center justify-between w-full text-left text-foreground hover:text-primary transition-colors font-medium ${isAboutPage(pathname) ? 'text-primary' : ''
+                              }`}>
+                            {item.label}
+                            <ChevronDown
+                              className={`w-4 h-4 transition-transform duration-200 ${mobileAboutDropdownOpen ? 'rotate-180' : ''
+                                }`}
+                            />
+                          </button>
+
+                          {/* Mobile Dropdown */}
+                          {mobileAboutDropdownOpen && (
+                            <div className='ml-4 mt-2 space-y-2'>
+                              {aboutDropdownItems.map((dropdownItem) => (
+                                <Link
+                                  key={dropdownItem.href}
+                                  href={dropdownItem.href}
+                                  onClick={() => {
+                                    setIsOpen(false);
+                                    setMobileAboutDropdownOpen(false);
+                                  }}
+                                  className={`block py-2 text-sm text-foreground hover:text-primary transition-colors ${pathname === dropdownItem.href
+                                    ? 'text-primary'
+                                    : ''
+                                    }`}>
+                                  {dropdownItem.label}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </>
+                      ) : item.href.startsWith('/') &&
+                        !item.href.startsWith('/#') ? (
+                        <Link
+                          href={item.href}
+                          onClick={() => setIsOpen(false)}
+                          className={`block text-foreground hover:text-primary transition-colors font-medium ${pathname === item.href ? 'text-primary' : ''
                             }`}>
                           {item.label}
-                          <ChevronDown
-                            className={`w-4 h-4 transition-transform duration-200 ${mobileAboutDropdownOpen ? 'rotate-180' : ''
-                              }`}
-                          />
+                        </Link>
+                      ) : (
+                        <button
+                          onClick={() => handleNavClick(item.href)}
+                          className='text-foreground hover:text-primary transition-colors font-medium'>
+                          {item.label}
                         </button>
-
-                        {/* Mobile Dropdown */}
-                        {mobileAboutDropdownOpen && (
-                          <div className='ml-4 mt-2 space-y-2'>
-                            {aboutDropdownItems.map((dropdownItem) => (
-                              <Link
-                                key={dropdownItem.href}
-                                href={dropdownItem.href}
-                                onClick={() => {
-                                  setIsOpen(false);
-                                  setMobileAboutDropdownOpen(false);
-                                }}
-                                className={`block py-2 text-sm text-foreground hover:text-primary transition-colors ${pathname === dropdownItem.href
-                                  ? 'text-primary'
-                                  : ''
-                                  }`}>
-                                {dropdownItem.label}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </>
-                    ) : item.href.startsWith('/') &&
-                      !item.href.startsWith('/#') ? (
-                      <Link
-                        href={item.href}
-                        onClick={() => setIsOpen(false)}
-                        className={`block text-foreground hover:text-primary transition-colors font-medium ${pathname === item.href ? 'text-primary' : ''
-                          }`}>
-                        {item.label}
-                      </Link>
-                    ) : (
-                      <button
-                        onClick={() => handleNavClick(item.href)}
-                        className='text-foreground hover:text-primary transition-colors font-medium'>
-                        {item.label}
-                      </button>
-                    )}
-                  </div>
-                ))}
-                <Button
-                  onClick={() =>
-                    handleNavClick(pathname === '/' ? '#contact' : '/#contact')
-                  }
-                  size='sm'
-                  className='w-full'>
-                  Hubungi Kami
-                </Button>
+                      )}
+                    </div>
+                  ))}
+                  <Button
+                    onClick={() =>
+                      handleNavClick(pathname === '/' ? '#contact' : '/#contact')
+                    }
+                    size='sm'
+                    className='w-full'>
+                    Hubungi Kami
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
-        )}
-      </div>
-    </nav>
+          )
+        }
+      </div >
+    </nav >
   );
 }

@@ -10,7 +10,12 @@ import {
 } from 'lucide-react';
 import { footerContent } from '@/lib/content/footer';
 import { contactContent } from '@/lib/content/contact';
-import Image from 'next/image';
+import { Qwigley } from 'next/font/google';
+
+const qwiqley = Qwigley({
+  subsets: ['latin'],
+  weight: '400',
+});
 
 export function FooterSection() {
   const scrollToTop = () => {
@@ -22,23 +27,15 @@ export function FooterSection() {
       <div className='container mx-auto max-w-6xl'>
         <div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 lg:mb-8'>
           {/* Company Info */}
-          <div className='lg:col-span-2 space-y-3'>
-            <div className='flex items-center gap-2'>
-              <div className='w-6 h-6  flex items-center justify-center'>
-                <Image
-                  src={footerContent.company.logo}
-                  alt='Logo'
-                  width={40}
-                  height={40}
-                  className='object-contain'
-                />
-              </div>
-              <button
-                onClick={scrollToTop}
-                className='text-sm sm:text-base font-bold hover:text-background/80 transition-colors cursor-pointer'>
-                {footerContent.company.name}
-              </button>
-            </div>
+          <div className='lg:col-span-2 space-y-3 align-bottom'>
+            <button onClick={scrollToTop} className='px-2 gap-3 lg:gap-4 rounded inline-flex items-center hover:bg-neutral-200/20  transition-colors cursor-pointer'>
+              <img
+                src={footerContent.company.logo}
+                alt='Logo'
+                className='w-6 h-6 lg:w-8 lg:h-8 object-contain'
+              />
+              <span className={`text-2xl lg:text-3xl mt-2 lg:mt-2.5 ${qwiqley.className}`}>{footerContent.company.name}</span>
+            </button>
             <p className='text-background/80 leading-relaxed text-pretty text-xs sm:text-sm'>
               {footerContent.company.description}
             </p>
@@ -125,6 +122,6 @@ export function FooterSection() {
           </div>
         </div>
       </div>
-    </footer>
+    </footer >
   );
 }
