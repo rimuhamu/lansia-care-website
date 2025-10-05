@@ -39,43 +39,19 @@ export function ContactSection() {
               <h3 className='text-lg sm:text-xl font-bold text-foreground mb-4'>
                 {contactContent.map.title}
               </h3>
-              <Card>
-                <CardContent className='p-0'>
-                  <div className='relative h-64 rounded-lg overflow-hidden'>
-                    <iframe
-                      src={mapSrc}
-                      width='100%'
-                      height='100%'
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading='lazy'
-                      referrerPolicy='no-referrer-when-downgrade'
-                      className='absolute inset-0'
-                      title='Office Location Map'></iframe>
-                    {!process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY && (
-                      <div className='absolute inset-0 bg-card/50 flex items-center justify-center'>
-                        <div className='text-center'>
-                          <MapPin className='w-8 h-8 text-primary mx-auto mb-2' />
-                          <p className='text-foreground font-semibold text-xs sm:text-sm'>
-                            {footerContent.company.name}
-                          </p>
-                          <p className='text-muted-foreground text-xs'>Laras</p>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className='bg-background p-4 rounded-lg border border-gray-200'>
-              <h4 className='font-semibold text-foreground mb-2 text-xs sm:text-sm'>
-                Petunjuk Arah
-              </h4>
-              <div className='space-y-1 text-xs text-muted-foreground'>
-                {contactContent.map.directions.map((direction, index) => (
-                  <p key={index}>• {direction}</p>
-                ))}
+              <div className='border rounded-lg overflow-hidden'>
+                <div className='relative h-80'>
+                  <iframe
+                    src={mapSrc}
+                    width='100%'
+                    height='100%'
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading='lazy'
+                    referrerPolicy='no-referrer-when-downgrade'
+                    className='absolute inset-0'
+                    title='Location Map'></iframe>
+                </div>
               </div>
             </div>
           </div>
