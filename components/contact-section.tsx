@@ -7,9 +7,8 @@ import { contactContent } from '@/lib/content/contact';
 import { footerContent } from '@/lib/content/footer';
 
 const whatsappNumber = contactContent.whatsappNumber;
-const mapSrc = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
-  ? `https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=Sleman,Yogyakarta,Indonesia&zoom=15`
-  : 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.0123456789!2d110.3456789!3d-7.7654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNDUnNTUuNiJTIDExMMKwMjAnNDQuNCJF!5e0!3m2!1sen!2sid!4v1234567890123!5m2!1sen!2sid';
+const mapSrc =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.890938510231!2d110.43027351122065!3d-7.694852292290472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5c04c0a015d3%3A0xdb9741a91bdd3d95!2sJl.%20Tanjungsari%2C%20Sukoharjo%2C%20Kec.%20Ngaglik%2C%20Kabupaten%20Sleman%2C%20Daerah%20Istimewa%20Yogyakarta%2055581%2C%20Indonesia!5e0!3m2!1sid!2sde!4v1759698604209!5m2!1sid!2sde';
 
 export function ContactSection() {
   const handleWhatsAppContact = () => {
