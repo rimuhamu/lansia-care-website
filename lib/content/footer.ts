@@ -5,7 +5,7 @@ export const footerContent = {
     description:
       'Memberikan layanan perawatan harian terbaik untuk lansia dengan program yang dirancang khusus untuk mendukung kesehatan fisik, emosional, spiritual, dan sosial melalui kegiatan yang bermakna.',
     address: 'Tanjungsari RT 4 RW 6, Sukoharjo, Ngaglik, Sleman',
-    phone: '+62 812-3456-7890',
+    phone: '+62 811-2502-049',
     email: 'info@lansiadaycare.com',
   },
   programs: {
