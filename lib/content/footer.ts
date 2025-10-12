@@ -1,7 +1,7 @@
 export const footerContent = {
   company: {
     name: 'Laras',
-    logo: '/Laras Logo.svg',
+    logo: '/laras-logo.png',
     description:
       'Memberikan layanan perawatan harian terbaik untuk lansia dengan program yang dirancang khusus untuk mendukung kesehatan fisik, emosional, spiritual, dan sosial melalui kegiatan yang bermakna.',
     address: 'Tanjungsari RT 4 RW 6, Sukoharjo, Ngaglik, Sleman',
