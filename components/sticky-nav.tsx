@@ -118,8 +118,9 @@ export function StickyNav() {
               className='w-6 h-6 lg:w-8 lg:h-8 object-contain'
             />
             <div className='flex flex-col leading-0'>
-              <span className={`text-2xl lg:mt-0 mt-2 ${qwigley.className}`}>
-                Laras
+              <span
+                className={`text-base md:text-xl font-bold mb-1 mt-1 text-sidebar-accent`}>
+                LARAS
               </span>
               <span className='hidden lg:block mb-1.5 text-[0.6rem] text-muted-foreground'>
                 Layanan Kegiatan dan Rekreasi Lansia
