@@ -6,7 +6,7 @@ import { FooterSection } from '@/components/footer-section';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Laras',
+  title: 'Laras | Layanan Kegiatan dan Rekreasi Lansia',
   description:
     'Laras menyediakan layanan perawatan dan pendampingan lansia dengan kasih sayang, aman, serta profesional di wilayah Sleman.',
   icons: {
