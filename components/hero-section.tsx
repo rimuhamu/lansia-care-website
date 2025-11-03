@@ -32,6 +32,18 @@ const slideshowImages = [
     src: '/elder-4.jpg',
     alt: 'Happy elderly people in community care',
   },
+  {
+    src: '/elder-5.jpg',
+    alt: 'Happy elderly people in community care',
+  },
+  {
+    src: '/elder-6.jpg',
+    alt: 'Happy elderly people in community care',
+  },
+  {
+    src: '/elder-7.jpg',
+    alt: 'Happy elderly people in community care',
+  },
 ];
 
 export function HeroSection() {
@@ -39,8 +51,9 @@ export function HeroSection() {
   const [isPlaying, setIsPlaying] = useState(true);
 
   const handleWhatsAppContact = () => {
-    const whatsappUrl = `https://wa.me/${contactContent.whatsappNumber
-      }?text=${encodeURIComponent(contactContent.whatsappMessage)}`;
+    const whatsappUrl = `https://wa.me/${
+      contactContent.whatsappNumber
+    }?text=${encodeURIComponent(contactContent.whatsappMessage)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -122,10 +135,11 @@ export function HeroSection() {
                       <button
                         key={index}
                         onClick={() => goToSlide(index)}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 ${currentSlide === index
-                          ? 'bg-white scale-125 shadow-lg'
-                          : 'bg-white/60 hover:bg-white/80 hover:scale-110'
-                          }`}
+                        className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 ${
+                          currentSlide === index
+                            ? 'bg-white scale-125 shadow-lg'
+                            : 'bg-white/60 hover:bg-white/80 hover:scale-110'
+                        }`}
                         aria-label={`Go to slide ${index + 1}`}
                       />
                     ))}
