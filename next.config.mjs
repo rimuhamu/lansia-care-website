@@ -1,6 +1,8 @@
+import { withPayload } from '@payloadcms/next/withPayload'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['@payloadcms/richtext-lexical', '@payloadcms/db-mongodb', 'payload'],
+  transpilePackages: ['@payloadcms/richtext-lexical'],
 };
 
-export default nextConfig;
+export default withPayload(nextConfig);
