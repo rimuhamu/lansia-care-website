@@ -69,7 +69,7 @@ export interface Config {
   collections: {
     media: Media;
     users: User;
-    posts: Post;
+    berita: Berita;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -79,7 +79,7 @@ export interface Config {
   collectionsSelect: {
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
-    posts: PostsSelect<false> | PostsSelect<true>;
+    berita: BeritaSelect<false> | BeritaSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -164,9 +164,9 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts".
+ * via the `definition` "berita".
  */
-export interface Post {
+export interface Berita {
   id: string;
   title: string;
   slug: string;
@@ -223,8 +223,8 @@ export interface PayloadLockedDocument {
         value: string | User;
       } | null)
     | ({
-        relationTo: 'posts';
-        value: string | Post;
+        relationTo: 'berita';
+        value: string | Berita;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -311,9 +311,9 @@ export interface UsersSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts_select".
+ * via the `definition` "berita_select".
  */
-export interface PostsSelect<T extends boolean = true> {
+export interface BeritaSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   images?: T;

@@ -37,7 +37,10 @@ export default buildConfig({
       fields: [{ name: 'name', type: 'text', required: true }],
     },
     {
-      slug: 'posts',
+      slug: 'berita',
+      access: {
+        read: () => true,
+      },
       fields: [
         { name: 'title', type: 'text', required: true },
         {
