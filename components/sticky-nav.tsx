@@ -118,12 +118,12 @@ export function StickyNav() {
               alt='Logo'
               className='w-6 h-6 lg:w-8 lg:h-8 object-contain'
             />
-            <div className='flex flex-col leading-0'>
+            <div className='flex flex-col leading-0 w-50'>
               <span
                 className={`text-base md:text-xl font-bold mb-1 mt-1 text-sidebar-accent`}>
                 LARAS
               </span>
-              <span className='hidden lg:block mb-1.5 text-[0.6rem] text-muted-foreground'>
+              <span className='hidden lg:block mb-3.5 text-[0.6rem] text-muted-foreground'>
                 Layanan Kegiatan dan Rekreasi Lansia
               </span>
             </div>
