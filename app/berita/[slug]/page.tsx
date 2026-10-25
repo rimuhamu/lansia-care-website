@@ -1,16 +1,42 @@
+import { notFound } from "next/navigation";
+import { RichText } from "@/components/RichText";
+import { ContactSection } from "@/components/contact-section";
+import React from "react";
 
-import React from 'react';
-import { notFound } from 'next/navigation';
-import { LexicalRichText } from '@payloadcms/richtext-lexical';
+type Berita = {
+  id: string;
+  title: string;
+  slug: string;
+  content: any[]; // You might want to define a more specific type for content
+  publishedDate: string;
+  images: {
+    url: string;
+    alt: string;
+  }[];
+};
 
-const BeritaDetailPage = async ({ params }: { params: { slug: string } }) => {
-  let beritaItem = null;
+type Props = {
+  params: { slug: string };
+};
+
+const BeritaDetailPage = async ({ params }: Props) => {
+  let beritaItem: Berita | null = null;
+  const serverURL =
+    process.env.PAYLOAD_PUBLIC_SERVER_URL || "http://localhost:3000";
+
   try {
-    const response = await fetch(`${process.env.PAYLOAD_PUBLIC_SERVER_URL}/api/berita?where[slug][equals]=${params.slug}`, { next: { revalidate: 60 } });
+    const response = await fetch(
+      `${serverURL}/api/berita?where[slug][equals]=${params.slug}&depth=1`,
+      { next: { revalidate: 60 } },
+    );
     if (!response.ok) {
-      throw new Error(`Failed to fetch berita item: ${response.statusText}`);
+      console.error(`Failed to fetch berita item: ${response.statusText}`);
+      return notFound();
     }
     const data = await response.json();
+    if (data.docs.length === 0) {
+      return notFound();
+    }
     beritaItem = data.docs[0];
   } catch (error) {
     console.error(error);
@@ -21,36 +47,76 @@ const BeritaDetailPage = async ({ params }: { params: { slug: string } }) => {
     return notFound();
   }
 
+  const imageUrl =
+    beritaItem.images && beritaItem.images.length > 0
+      ? `${serverURL}${beritaItem.images[0].url}`
+      : "/placeholder.jpg";
+  const imageAlt =
+    beritaItem.images && beritaItem.images.length > 0
+      ? beritaItem.images[0].alt
+      : "Placeholder Image";
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-4">{beritaItem.title}</h1>
-      <p className="text-gray-600 mb-8">
-        By {beritaItem.author} on {new Date(beritaItem.publishedDate).toLocaleDateString()}
-      </p>
-      {beritaItem.image && (
-        <img
-          src={`${process.env.PAYLOAD_PUBLIC_SERVER_URL}${beritaItem.image.url}`}
-          alt={beritaItem.image.alt}
-          className="w-full h-96 object-cover rounded-lg mb-8"
-        />
-      )}
-      <div className="prose lg:prose-xl">
-        <LexicalRichText content={beritaItem.content} />
+    <div className="bg-gradient-to-br from-background via-background to-muted/30">
+      <div className="container mx-auto max-w-4xl px-4 py-16 lg:py-20">
+        <article>
+          <header className="mb-12 text-center">
+            <div className="inline-flex items-center bg-primary/10 px-6 py-3 rounded-full border border-primary/20 mb-6">
+              <span className="text-primary font-semibold text-sm uppercase tracking-wide">
+                Berita
+              </span>
+            </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+              {beritaItem.title}
+            </h1>
+            <p className="text-muted-foreground">
+              Dipublikasikan pada{" "}
+              {new Date(beritaItem.publishedDate).toLocaleDateString("id-ID", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </p>
+          </header>
+
+          <div className="my-8">
+            <img
+              src={imageUrl}
+              alt={imageAlt}
+              className="w-full h-auto max-h-[500px] object-cover rounded-2xl shadow-lg"
+            />
+          </div>
+
+          <div className="prose prose-lg max-w-none mx-auto text-foreground prose-headings:text-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-strong:text-foreground">
+            <RichText content={beritaItem.content} />
+          </div>
+        </article>
       </div>
+      <ContactSection />
     </div>
   );
 };
 
-export default BeritaDetailPage;
+export default async function BeritaPage({ params }: Props) {
+  return (
+    <React.Suspense fallback={<div>Loading...</div>}>
+      <BeritaDetailPage params={params} />
+    </React.Suspense>
+  );
+}
 
 export async function generateStaticParams() {
   try {
-    const response = await fetch(`${process.env.PAYLOAD_PUBLIC_SERVER_URL}/api/berita?limit=100`, { next: { revalidate: 60 } });
+    const serverURL =
+      process.env.PAYLOAD_PUBLIC_SERVER_URL || "http://localhost:3000";
+    const response = await fetch(`${serverURL}/api/berita?limit=100`, {
+      next: { revalidate: 60 },
+    });
     if (!response.ok) {
       throw new Error(`Failed to fetch slugs: ${response.statusText}`);
     }
     const data = await response.json();
-    return data.docs.map((doc) => ({
+    return data.docs.map((doc: { slug: string }) => ({
       slug: doc.slug,
     }));
   } catch (error) {
