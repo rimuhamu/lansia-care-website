@@ -65,7 +65,6 @@ export function StickyNav() {
       label: 'Program',
       href: pathname === '/' ? '#programs' : '/#programs',
     },
-    { label: 'Berita', href: '/berita' },
     { label: 'Fasilitas', href: '/fasilitas' },
     { label: 'Metode Pembelajaran', href: '/metode-pembelajaran' },
     { label: 'FAQ', href: pathname === '/' ? '#faq' : '/#faq' },
