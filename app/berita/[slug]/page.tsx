@@ -2,12 +2,13 @@ import { notFound } from "next/navigation";
 import { RichText } from "@/components/RichText";
 import { ContactSection } from "@/components/contact-section";
 import React from "react";
+import type { SerializedEditorState } from "lexical";
 
 type Berita = {
   id: string;
   title: string;
   slug: string;
-  content: any[]; // You might want to define a more specific type for content
+  content: SerializedEditorState;
   publishedDate: string;
   images: {
     url: string;
@@ -16,17 +17,18 @@ type Berita = {
 };
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 const BeritaDetailPage = async ({ params }: Props) => {
+  const { slug } = await params;
   let beritaItem: Berita | null = null;
   const serverURL =
     process.env.PAYLOAD_PUBLIC_SERVER_URL || "http://localhost:3000";
 
   try {
     const response = await fetch(
-      `${serverURL}/api/berita?where[slug][equals]=${params.slug}&depth=1`,
+      `${serverURL}/api/berita?where[slug][equals]=${slug}&depth=1`,
       { next: { revalidate: 60 } },
     );
     if (!response.ok) {

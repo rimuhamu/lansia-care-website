@@ -1,7 +1,8 @@
 import { RichText as RichTextConverter } from '@payloadcms/richtext-lexical/react';
+import type { SerializedEditorState } from 'lexical';
 
 type Props = {
-  content: any;
+  content?: SerializedEditorState | null;
   className?: string;
 };
 
@@ -12,7 +13,7 @@ export function RichText({ content, className }: Props) {
 
   return (
     <div className={className}>
-      <RichTextConverter content={content} />
+      <RichTextConverter data={content} />
     </div>
   );
 }
