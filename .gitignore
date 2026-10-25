@@ -5,7 +5,9 @@
 
 # next.js
 /.next/
+/.next-export/
 /out/
+/lansia-care-cpanel.zip
 
 # production
 /build

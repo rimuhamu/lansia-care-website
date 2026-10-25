@@ -18,18 +18,14 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## CMS
+## Upload to cPanel
 
-This project uses [Payload CMS](https://payloadcms.com/) for content management. The admin panel is available at [http://localhost:3000/admin](http://localhost:3000/admin).
+Shared hosting serves the files in `public_html`. The cPanel package is a static export of the public pages.
 
-The collections are defined in `payload.config.js`.
-
-## Environment Variables
-
-Create a `.env` file in the root of the project and add the following environment variables:
-
+```bash
+npm run export:cpanel
 ```
-PAYLOAD_PUBLIC_SERVER_URL=http://localhost:3000
-DATABASE_URI=mongodb://127.0.0.1:27017/lansia-care
-PAYLOAD_SECRET=your-secret
-```
+
+That writes `lansia-care-cpanel.zip`. In cPanel File Manager, open `public_html`, upload the zip, and extract it so `index.html` sits directly in `public_html`.
+
+Page copy lives in `lib/content`.

@@ -1,8 +1,14 @@
-import { withPayload } from '@payloadcms/next/withPayload'
+const isStaticExport = process.env.STATIC_EXPORT === '1'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['@payloadcms/richtext-lexical'],
-};
+  ...(isStaticExport
+    ? {
+        output: 'export',
+        trailingSlash: true,
+        images: { unoptimized: true },
+      }
+    : {}),
+}
 
-export default withPayload(nextConfig);
+export default nextConfig
