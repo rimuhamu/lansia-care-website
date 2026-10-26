@@ -35,6 +35,7 @@ export const kegiatanContent = {
         'Pengurus BKL',
         'Warga PSI',
       ],
+      photos: ['/sore-1.jpeg', '/sore-2.jpeg'],
     },
     {
       id: 'potong-tumpeng',
@@ -71,6 +72,7 @@ export const kegiatanContent = {
         'Pengurus BKL Tanjungsari',
         'Lansia Tanjungsari',
       ],
+      photos: ['/soft-1.jpeg', '/soft-2.jpeg'],
     },
     {
       id: 'skrining-kesehatan-lansia',
@@ -87,6 +89,7 @@ export const kegiatanContent = {
         'Pengurus BKL Tanjungsari',
         'Lansia Tanjungsari',
       ],
+      photos: ['/skrining-1.jpeg', '/skrining-2.jpeg'],
     },
     {
       id: 'laras-sehati',
@@ -97,6 +100,7 @@ export const kegiatanContent = {
       name: 'Laras Sehati',
       place: 'Tanjungsari, Sukoharjo, Ngaglik',
       participants: [],
+      photos: ['/sehati-1.jpeg', '/sehati-2.jpeg'],
     },
   ] satisfies Kegiatan[],
 };
