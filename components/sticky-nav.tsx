@@ -123,7 +123,7 @@ export function StickyNav() {
                 LARAS
               </span>
               <span className='hidden lg:block mb-3.5 text-[0.6rem] text-muted-foreground'>
-                Layanan Kegiatan dan Rekreasi Lansia
+                Layanan Aktivitas dan Rekreasi Lanjut Usia
               </span>
             </div>
           </Link>
