@@ -8,6 +8,8 @@ export type Kegiatan = {
   name: string;
   place: string;
   participants: string[];
+  /** Up to two activity photos. Empty slots render as placeholders. */
+  photos?: string[];
 };
 
 export const kegiatanContent = {
