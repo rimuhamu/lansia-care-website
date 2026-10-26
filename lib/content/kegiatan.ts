@@ -35,7 +35,7 @@ export const kegiatanContent = {
         'Pengurus BKL',
         'Warga PSI',
       ],
-      photos: ['/sore-1.jpeg', '/sore-2.jpeg'],
+      photos: ['/sore-1.jpg', '/sore-2.jpg'],
     },
     {
       id: 'potong-tumpeng',

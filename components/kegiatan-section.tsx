@@ -105,9 +105,11 @@ export function KegiatanSection() {
                       aria-hidden
                     />
                     <article className='bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden'>
-                      <div className='bg-cream/70 p-3 sm:p-4'>
-                        <ActivityPhotos activity={activity} />
-                      </div>
+                      {activity.photos && activity.photos.length > 0 && (
+                        <div className='bg-cream/70 p-3 sm:p-4'>
+                          <ActivityPhotos activity={activity} />
+                        </div>
+                      )}
 
                       <div className='p-5 sm:p-6'>
                         <p className='text-xs font-semibold uppercase tracking-wide text-primary mb-1'>

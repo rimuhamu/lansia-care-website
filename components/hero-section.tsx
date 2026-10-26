@@ -33,15 +33,7 @@ const slideshowImages = [
     alt: 'Happy elderly people in community care',
   },
   {
-    src: '/elder-5.jpg',
-    alt: 'Happy elderly people in community care',
-  },
-  {
     src: '/elder-6.jpg',
-    alt: 'Happy elderly people in community care',
-  },
-  {
-    src: '/elder-7.jpg',
     alt: 'Happy elderly people in community care',
   },
 ];
