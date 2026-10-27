@@ -51,6 +51,7 @@ export const kegiatanContent = {
         'Tokoh masyarakat (mantan ketua RW 16 PSI)',
         'KUA Kapanewon Ngaglik',
       ],
+      photos: ['/tumpeng-1.jpeg', '/tumpeng-2.jpeg'],
     },
     {
       id: 'soft-launching',
