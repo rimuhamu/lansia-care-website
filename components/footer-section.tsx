@@ -26,6 +26,12 @@ const socialIcons = {
   },
 } as const;
 
+type SocialIconName = keyof typeof socialIcons;
+
+function isSocialIcon(label: string): label is SocialIconName {
+  return label in socialIcons;
+}
+
 export function FooterSection() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -90,6 +96,7 @@ export function FooterSection() {
             <div className='space-y-3'>
               <div className='flex gap-2'>
                 {footerContent.social.links.map((link) => {
+                  if (!isSocialIcon(link.label)) return null;
                   const Icon = socialIcons[link.label];
                   return (
                     <a
